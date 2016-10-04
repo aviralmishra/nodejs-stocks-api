@@ -30,7 +30,7 @@ module.exports = function () {
     'HOST': '<API_HOST_NAME>',
     'PATH': '<API_PATH>',
     'HEADER_MASHAPE_KEY': '<X-Mashape-Key Header>',
-    'HEADER_ACCEPT_KEY': 'Accept Header e.g. application/json'
+    'HEADER_ACCEPT_KEY': '<Accept Header e.g. application/json>'
   };
 
   return API_CONFIG;

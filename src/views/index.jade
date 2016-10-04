@@ -1,0 +1,14 @@
+html
+  head
+    link(rel="stylesheet", href="styles.css")
+    title #{title}
+  body
+    div(id='wrapper')
+    div(class='message') #{message}
+    div(class='text')
+      ul
+        each path in APIs
+          li
+            a(href="#{path.link}") #{path.text}
+
+

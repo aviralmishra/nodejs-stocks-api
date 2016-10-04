@@ -1,0 +1,25 @@
+body {
+  background-color: #585858;
+}
+
+#wrapper {
+  width: 100%;
+}
+
+.message {
+  text-align: center;
+  font-size: 300%;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  color: #67BCDB;
+}
+
+.text {
+  text-align: left;
+  font-size: 200%;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  color: #67BCDB;
+}
+
+a:visited {
+  color: #67BCDB;
+}

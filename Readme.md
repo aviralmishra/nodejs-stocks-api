@@ -1,5 +1,7 @@
 # nodejs-stocks-api
-RESTful APIs for stocks data. Built with Node.JS and Express. It uses Mocha and supertest for testing and Jade for templates.
+RESTful APIs for stocks data. Built with Node.JS and Express.
+
+The application uses Mocha and supertest for testing and Jade for templates.
 
 It provides the services to:
 

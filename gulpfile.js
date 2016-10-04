@@ -33,12 +33,13 @@ gulp.task('tests', function () {
     });
 });
 
-gulp.task('serve', ['jsstyle', 'tests'], function () {
+gulp.task('serve', ['jsstyle'], function () {
   var options = {
     script: config.script,
     delayTime: 1,
     env: {
-      'PORT': 4000
+      'PORT': 4000,
+      'NODE_ENV': 'build'
     },
     watch: jsFiles
   };

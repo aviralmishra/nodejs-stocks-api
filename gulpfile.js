@@ -1,10 +1,16 @@
 var gulp = require('gulp');
+var mocha = require('gulp-mocha');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
+var stylish = require('gulp-jscs-stylish');
+
 var nodemon = require('gulp-nodemon');
+
 var config = require('./gulp.config')();
 
 var jsFiles = config.jsFiles;
+var testFiles = config.testFiles;
+var allFiles = jsFiles.concat(testFiles);
 
 gulp.task('jsstyle', function () {
   return gulp.src(jsFiles)
@@ -12,10 +18,22 @@ gulp.task('jsstyle', function () {
     .pipe(jshint.reporter('jshint-stylish', {
       verbose: true
     }))
-    .pipe(jscs());
+    .pipe(jscs())
+    .pipe(stylish({ verbose: true }));
 });
 
-gulp.task('serve', ['jsstyle'], function () {
+gulp.task('tests', function () {
+  return gulp.src(testFiles, { read: false })
+    .pipe(mocha({
+      reporter: 'spec',
+      globals: {}
+    }))
+    .once('end', function () {
+      process.exit();
+    });
+});
+
+gulp.task('serve', ['jsstyle', 'tests'], function () {
   var options = {
     script: config.script,
     delayTime: 1,
@@ -30,3 +48,4 @@ gulp.task('serve', ['jsstyle'], function () {
       console.log('Restarting....');
     });
 });
+

@@ -11,6 +11,7 @@ module.exports = function (app) {
       if (error) {
         return next(error);
       }
+      res.setHeader('Content-Type', 'application/json');
       res.send(stocks);
     });
   }

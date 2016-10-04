@@ -33,6 +33,7 @@ routes = require('./src/routes/stockRoutes')(app);
 
 /* On API errors, send JSON response with error message. */
 app.use(function (err, req, res, next) {
+  res.setHeader('Content-Type', 'application/json');
   res.status(err.status || 500).json({
     errorMessage: err.message
   });
@@ -77,3 +78,6 @@ app.listen(port, function () {
     '\n__dirname = ' + __dirname +
     '\nprocess.cwd = ' + process.cwd());
 });
+
+/* Provide app for tests. */
+module.exports.app = app;

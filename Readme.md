@@ -19,4 +19,20 @@ The page lists out all the available paths and APIs.
 
 ## Note
 
-1. 'config' directory is not added to the repo as it contains sensitive information.
+'src/config/config.js' file is not added to the repo as it contains sensitive information.
+
+You will need to provide this file to get the application running. Here is the template for the file:
+
+```
+module.exports = function () {
+
+  var API_CONFIG = {
+    'HOST': '<API_HOST_NAME>',
+    'PATH': '<API_PATH>',
+    'HEADER_MASHAPE_KEY': '<X-Mashape-Key Header>',
+    'HEADER_ACCEPT_KEY': 'Accept Header e.g. application/json'
+  };
+
+  return API_CONFIG;
+};
+```
